@@ -40,8 +40,8 @@ experience...
 
 ```hcl
 resource "aws_iam_policy" "my_policy" {
-  name   = "tf-policydocument"
-  policy = data.aws_iam_policy_document.example.json
+  name   = "foo"
+  policy = data.aws_iam_policy_document.my_policy.json
 }
 
 data "aws_iam_policy_document" "my_policy" {
