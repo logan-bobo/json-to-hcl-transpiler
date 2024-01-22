@@ -13,7 +13,7 @@ policies for the following reasons:
 ## Example
 
 Given the following policy that is declared as inline JSON... 
-```
+```hcl
 resource "aws_iam_policy" "my_policy" {
   name        = "foo"
   path        = "/"
@@ -31,13 +31,14 @@ resource "aws_iam_policy" "my_policy" {
   ]
 }
 EOF
+}
 ```
 
 We want to move this out to a terraform native (aws provider) resource block to
 negate the negative effects mentioned above and improve the developer 
 experience...
 
-```
+```hcl
 resource "aws_iam_policy" "my_policy" {
   name   = "tf-policydocument"
   policy = data.aws_iam_policy_document.example.json
